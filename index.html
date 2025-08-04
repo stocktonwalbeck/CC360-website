@@ -363,15 +363,29 @@
 
     /* Base styles moved to critical section above */
 
-    /* Clean Background - Simplified */
-    .nebula-bg{min-height:100vh;background:radial-gradient(ellipse at 30% 0%, rgba(4, 117, 255, 0.05) 0%, transparent 50%), 
-               radial-gradient(ellipse at 70% 100%, rgba(14, 50, 94, 0.03) 0%, transparent 50%),
-               linear-gradient(135deg, #f8fafc 0%, #e6f2ff 50%, #f0f7ff 100%);background-attachment:fixed}
+    /* CC360 Cancellation Flow Background - With Parallax */
+    .nebula-bg{
+      min-height:100vh;
+      background:linear-gradient(to bottom right, #131313 0%, #0E325E 70%, #0475FF 100%);
+      background-attachment:fixed;
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+    
+    /* Ensure consistent gradient across all screen sizes */
+    @media (max-width: 768px) {
+      .nebula-bg {
+        background-attachment: scroll; /* Fixed attachment can cause issues on mobile */
+      }
+    }
+    
+    /* Remove dark mode override since we want consistent gradient */
     @media (prefers-color-scheme: dark) {
       .nebula-bg {
-        background: radial-gradient(ellipse at 30% 0%, rgba(4, 117, 255, 0.1) 0%, transparent 50%), 
-                    radial-gradient(ellipse at 70% 100%, rgba(14, 50, 94, 0.08) 0%, transparent 50%),
-                    linear-gradient(135deg, #111D2C 0%, #0E325E 50%, #111D2C 100%);
+        background:linear-gradient(to bottom right, #131313 0%, #0E325E 70%, #0475FF 100%);
+        background-attachment:fixed;
+        background-repeat:no-repeat;
+        background-size:cover;
       }
     }
 
