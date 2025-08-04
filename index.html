@@ -363,30 +363,40 @@
 
     /* Base styles moved to critical section above */
 
-    /* CC360 Cancellation Flow Background - With Parallax */
-    .nebula-bg{
-      min-height:100vh;
-      background:linear-gradient(to bottom right, #131313 0%, #0E325E 70%, #0475FF 100%);
-      background-attachment:fixed;
-      background-repeat:no-repeat;
-      background-size:cover;
+    /* Site-wide Seamless Gradient Background */
+    body {
+      background-image: url('/assets/gradient-bg.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      min-height: 100vh;
     }
     
-    /* Ensure consistent gradient across all screen sizes */
+    /* Mobile optimization - background-attachment: fixed can cause issues */
     @media (max-width: 768px) {
-      .nebula-bg {
-        background-attachment: scroll; /* Fixed attachment can cause issues on mobile */
+      body {
+        background-attachment: scroll;
       }
     }
     
-    /* Remove dark mode override since we want consistent gradient */
-    @media (prefers-color-scheme: dark) {
-      .nebula-bg {
-        background:linear-gradient(to bottom right, #131313 0%, #0E325E 70%, #0475FF 100%);
-        background-attachment:fixed;
-        background-repeat:no-repeat;
-        background-size:cover;
-      }
+    /* Make all sections transparent to show gradient through */
+    .nebula-bg,
+    .section,
+    .hero,
+    .features,
+    #c360-hero,
+    #c360-reviews,
+    .c360-section,
+    main,
+    section,
+    .container {
+      background: transparent !important;
+    }
+    
+    /* Ensure content is readable over gradient */
+    .nebula-bg {
+      min-height: 100vh;
     }
 
     /* =============================================
@@ -4886,4 +4896,5 @@
   </script>
 
 </body>
+</html> 
 </html> 
